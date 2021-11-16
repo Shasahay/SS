@@ -1,0 +1,14 @@
+<section class="">
+    <ng-container *ngIf="subCategories">
+        <h5 class="text-primary ml-3">SubCategories</h5>
+        <ul class="list-group my-3">
+            <li class="list-group-item cursor-pointer" 
+                *ngFor="let subCategory of subCategories"
+                [class.active]="subCategory.subCategoryId === this.filter.subCategoryId"
+                [value]="subCategory.subCategoryId"
+                (click)="onSubCategorySelected(subCategory.subCategoryId)">
+                {{subCategory.name}}
+            </li>
+          </ul> 
+    </ng-container>
+</section>

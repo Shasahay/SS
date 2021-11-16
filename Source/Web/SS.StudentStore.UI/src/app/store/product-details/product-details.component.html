@@ -1,0 +1,83 @@
+<div class="container-fluid mt-5">
+    <div class="row" *ngIf="product">
+
+      <div class="col-1 border border-primary rounded ml-4 align-items-center p-2 my-4">
+        <!-- <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid w-100"> -->
+          <div  *ngFor="let img of images" class="border m-1 cursor-pointer p-2" [ngClass]= "{'active': selectedItem == img}" (click)="activateClass($event, img)">
+            <img class="img-fluid mw-100" [src]= "img" (click)="browseImage(img)">
+          </div>
+      </div>
+
+
+
+
+      <div class="col-4 mh-100 mw-100 rounded">
+        <!-- <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid w-100"> -->
+        <img [src]="image" alt="{{product.name}}" class="img-fluid mw-100 h-100 rounded">
+        <!-- <h3>{{ product.name }}</h3> -->
+      </div>
+      <div class="small">
+        
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Preview</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <pdf-viewer
+            src="http://localhost:4200/assets/document/403000542.pdf"
+            [rotation]="0"
+              [fit-to-page]="true"
+              [original-size]="true"
+              [show-all]="true"
+              style="display: block;"
+          ></pdf-viewer>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+          </div>
+        </ng-template>
+        
+        <button class="btn btn-sm btn-outline-primary" (click)="open(content)">Preview</button>
+
+
+
+      </div>
+      <div class="col-3">
+          <h3>{{ product.name }}</h3>
+          <!-- <div class="col-3">
+            <button class="btn btn-outline-primary" (click)="openDialog()">
+              <i class="fa fa-eye" aria-hidden="true"></i>
+              Preview</button>
+          </div> -->
+            <div class="d-flex justify-content-start align-items-center mt-5" *ngIf="availProductTypes">
+              <div class="" *ngFor="let avproductType of availProductTypes">
+                <button (click)="selectProductType(avproductType.productTypeId)" class="btn btn-md rounded ml-3" [ngClass]="avproductType.name =='Paperback'? 'btn-outline-warning': 'btn-outline-primary'" >{{avproductType.name}} 
+                  <p><small>{{ avproductType.price | currency: "INR"}}</small></p>
+                </button> 
+              </div>
+          </div>
+         
+          <!-- <div class="d-flex justify-content-start align-items-center mt-5 ml-4">
+              <i (click)="decrementQuantity()" class="fa fa-minus-circle text-warning mr-2" style="cursor: pointer; font-size: 2em;"></i>
+              <span class="font-weight-bold" style="font-size: 1.5em;">{{quantity}}</span>
+              <i (click)="incrementQuantity()" class="fa fa-plus-circle text-warning mx-2" style="cursor: pointer; font-size: 2em;"></i>
+              <button (click)="addItemToCart()" class="btn btn-outline-primary btn-lg ml-4">Add to Cart</button>
+            
+            </div> -->
+      </div>
+      
+
+      <div class="col-3 my-5"> 
+        <app-card-display [product] = "product" [productType]="productType"></app-card-display>
+      </div>
+      <div class="row mt-5">
+          <div class="col-12 ml-5 mt-5">
+              <h4>Description</h4>
+              <p>{{product.description}}</p>
+          </div>
+      </div>
+    </div>
+  </div>

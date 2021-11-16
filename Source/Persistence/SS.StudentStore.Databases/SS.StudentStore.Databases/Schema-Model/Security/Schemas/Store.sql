@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Store]
+AUTHORIZATION [dbo]
+GO

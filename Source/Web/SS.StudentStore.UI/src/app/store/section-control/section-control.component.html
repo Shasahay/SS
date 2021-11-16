@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="filter-container">
+    <section class="">
+        <ng-container *ngIf="sections">
+            <h5 class="text-primary">Sections</h5>
+            <ul class="list-group my-3 small">
+                <li class="list-group-item border border-white" 
+                    *ngFor="let section of sections"
+                    [value]="section.sectionId"
+                    (click)="onSectionSelected(section.sectionId)">
+                    
+                    {{section.name}}
+                </li>
+               
+              </ul>  
+        </ng-container>
+    </section>
+    </div>
+    </div>

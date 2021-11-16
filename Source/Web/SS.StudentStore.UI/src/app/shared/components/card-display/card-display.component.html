@@ -1,0 +1,49 @@
+<mat-card *ngIf="productType" class="bg-card rounded">
+    <mat-card-header>
+      <mat-card-title>{{productType.price | currency: "INR"}}</mat-card-title>
+      <mat-card-subtitle> 
+        <span *ngIf="product.price > productType.price" style="color:#E1E1E1;; text-decoration: line-through;"><span style="color: #ffff;">{{product.price | currency: "INR"}}</span></span>
+      <br>{{productType.name}}  
+      </mat-card-subtitle>
+    </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="productType.name === 'Ebook'">
+        <p> It will add <b> {{product.title}} </b> into you study spaace and you can use it at any time. Only one copy of it will available for download. 
+          In order to access your ebook you please visit <a> MY STUDY SPACE Tab</a>
+           </p>
+        </div>
+
+        <div *ngIf="productType.name === 'Subscribe'">
+          <p> you will get {{quantity}} month(s) subscription of this <b> {{product.title}} </b>
+            In order to access your subscription please visit visit <a> MY STUDY SPACE Tab</a>
+             </p>
+          </div>
+  
+      </mat-card-content>
+      <mat-card-actions >
+        <div class="row mb-4 mt-3">
+          <div *ngIf="productType.name === 'Paperback'">
+                    <i (click)="decrementQuantity()" class="fa fa-minus-circle text-warning ml-5 mr-2" style="cursor: pointer; font-size: 2em;"></i>
+              <span class="font-weight-bold" style="font-size: 1.5em;">{{quantity}}</span>
+              <i (click)="incrementQuantity()" class="fa fa-plus-circle text-warning mx-2 mt-5" style="cursor: pointer; font-size: 2em;"></i>
+              
+              <!-- <button (click)="addItemToCart()" class="btn btn-outline-primary btn-lg ml-5 mt-4">Add to Cart</button> -->
+            </div>
+            
+              <!-- <div class="row" *ngIf="productType.name === 'Ebook'">
+                      <button (click)="addItemToCart()" class="btn btn-outline-primary btn-lg ml-5">Buy it</button>
+             </div> -->
+            <div *ngIf="productType.name === 'Subscribe'">
+              <i (click)="decrementQuantity()" class="fa fa-minus-circle text-warning ml-5 mr-2" style="cursor: pointer; font-size: 2em;"></i>
+              <span class="font-weight-bold mt-5" style="font-size: 1.5em;">{{quantity}} month(s)</span>
+              <i (click)="incrementQuantity()" class="fa fa-plus-circle text-warning mx-2 mt-5" style="cursor: pointer; font-size: 2em;"></i>
+        
+        <!-- <button (click)="addItemToCart()" class="btn btn-outline-primary btn-lg ml-5 mt-4">Subscribe</button> -->
+      </div>
+      <button (click)="addItemToCart()" class="btn btn-outline-primary btn-lg ml-5 mt-4">Add to Cart</button>
+            </div>
+      </mat-card-actions>
+    
+  </mat-card>
+
+  

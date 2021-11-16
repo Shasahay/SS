@@ -1,0 +1,20 @@
+﻿Create table [Store].[BasketItem](
+	[BasketItemId] Bigint Identity(1,1) Not Null,
+	[BasketId] Bigint Not Null,
+	[ProductId] BigInt not null,
+	[ProductTypeId] int null,
+	[ProductName] nvarchar (100),
+	[Quantity] int Not Null,
+	[PictureUrl] nvarchar(1000),
+	[Price] decimal (7,2) Null,
+	[NumberOfMonths] int Null, 
+	[IsActive] bit default(1),
+	[IsDelete] bit default(0),
+	[CreatedBy] nvarchar(100) null,
+	[CreatedDate]  datetime2 default(getdate()),
+	[ModifiedBy] nvarchar(100) null,
+	[ModifiedDate] Datetime2 null,
+	constraint [PK_BasketItem_BasketItemId] Primary Key clustered ([BasketItemId] Asc),
+	constraint [FK_BasketItem_Basket_BasketId] foreign Key ([BasketId]) references [Store].[Basket]([BasketId]),
+	constraint [FK_BasketItem_Product_ProductId] foreign Key ([ProductId]) references [Core].[Product]([ProductId])
+)

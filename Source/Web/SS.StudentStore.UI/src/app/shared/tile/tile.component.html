@@ -1,0 +1,18 @@
+<mat-card class="tile-style">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image':'url('+image+')'}"></div>
+      <mat-card-title>{{title}}</mat-card-title>
+      <mat-card-subtitle>{{SubTitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]= "image" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+       {{content}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a [routerLink]="buttonHlink" class="btn btn-outline-primary py-2 btn-block"><strong>{{buttonTitle}}</strong></a>
+      
+    </mat-card-actions>
+  </mat-card>
+  

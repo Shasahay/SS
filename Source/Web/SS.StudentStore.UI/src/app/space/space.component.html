@@ -1,0 +1,25 @@
+<mat-sidenav-container class="container-fluid">
+    <mat-sidenav class="col-md-3" #sidenav mode="side" [(opened)]="opened">
+                 <app-electronic-product-items [electronicProducts]="userOrderProducts" (itemsSelectedEvent) = "browseProduct($event)"></app-electronic-product-items>
+                 </mat-sidenav>
+  
+    <mat-sidenav-content ng-class="opened ? 'col-md-8' : 'row'" class="mh-100">
+      <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
+      <p><button mat-button (click)="sidenav.toggle()" style="margin-left:20px">>></button></p>
+
+      <div class="pdf-container" style="height: 100vh">
+        <!-- <pdf-viewer [src]="src" [original-size]="false"></pdf-viewer> -->
+        <div class="pull-right mr-2" style="margin-top: -40px;">
+        <button  class="btn btn-primary" (click)="previousPage()" [disabled]="page === 1">Previous Page</button>
+      
+         <button (click)="nextPage()" class="btn btn-primary" [disabled]="totalPages === 1">Next Page</button>
+         <p>{{ page }} / {{ totalPages }}</p>
+        </div>
+        
+        <pdf-viewer [src]="src" [show-all]="false"  [page]="page" (after-load-complete)="afterLoadComplete($event)" [original-size]="false" [render-text]="true" ></pdf-viewer>
+    </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+ 
+  

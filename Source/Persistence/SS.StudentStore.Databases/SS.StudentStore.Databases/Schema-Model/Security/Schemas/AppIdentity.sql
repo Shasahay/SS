@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [AppIdentity]
+AUTHORIZATION [dbo]
+GO

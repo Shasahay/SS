@@ -1,0 +1,21 @@
+﻿Create Table [Core].[Users](
+	[UserId] bigint Identity(1,1) not Null,
+	[Password] nvarchar(1000),
+	[FirstName] nvarchar(70) not null,
+	[MiddleName] nvarchar(70),
+	[LastName] nvarchar(70),
+	[UserName] nvarchar(100),
+	[DisplayName] nvarchar(100) null,
+	[Email] nvarchar(100) not null,
+	[CurrentGradeId] int Null,
+	[LastCompletedGardeId] int null,
+	[LastLoginDate] datetime2, 
+	[IsActive] bit default(1),
+	[CreatedBy] nvarchar(100) null,
+	[CreatedDate]  datetime2 default(getdate()),
+	[ModifiedBy] nvarchar(100) null,
+	[ModifiedDate] Datetime2 null,
+	constraint [PK_User_UserId] Primary key clustered (UserId asc),
+	Constraint [FK_Grade_GradeId_Users_CurrentGradeId] Foreign Key (CurrentGradeId) References [Core].[Grade](GradeId),
+	Constraint [FK_Grade_GradeId_Users_LastCompletedGardeId] Foreign Key (LastCompletedGardeId) References [Core].[Grade](GradeId)
+)

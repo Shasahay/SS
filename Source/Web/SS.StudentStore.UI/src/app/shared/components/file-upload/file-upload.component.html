@@ -1,0 +1,38 @@
+
+ <div class="card" >
+    <div class="card-header">
+        {{uploadType}}
+    </div>
+    <div class="card-body">
+<ngx-file-drop dropZoneLabel="Drop files here" contentClassName="drop-zone-area"
+               (onFileDrop)="dropped($event)">
+
+               <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                <div class="upload-group ml-5 mt-3">
+                    <div class="upload-group__dragdrop ml-5 mt-3">
+                        <i class="material-icons ml-5">cloud_upload</i>
+                        <div class="upload_group__dragdrop-label ml-5">Drag and drop document or
+                            <a href="javascript:void(0)" (click)="openFileSelector()">Browse</a>
+                        </div>
+                    </div>
+                </div>
+                
+              </ng-template>
+
+</ngx-file-drop>
+
+<div *ngFor = "let fl of files; let i = index">
+<mat-card class="required-card d-flex justify-content-between align-items-center mt-4">
+    <mat-card-content>
+        <p> {{fl.name}}</p>
+    </mat-card-content>
+<mat-card-actions>
+    <span class="text-danger">
+        <i (click)="removeSelectedFile(fl.name, i)" class="fa fa-trash" aria-hidden="true" style="cursor: pointer; font-size: 2em;"></i>
+
+    </span>
+</mat-card-actions>
+</mat-card>   
+</div> 
+</div>
+</div>

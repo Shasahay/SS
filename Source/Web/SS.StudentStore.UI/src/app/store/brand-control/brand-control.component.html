@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="filter-container">
+    <section class="">
+        <ng-container *ngIf="brands">
+            <h5 class="text-primary">Brands</h5>
+            <ul class="list-group my-3 small">
+                <li class="list-group-item border border-white" 
+                    *ngFor="let brand of brands"
+                    [value]="brand.brandId"
+                    (click)="onBrandSelected(brand.brandId)">
+                    
+                    {{brand.name}}
+                </li>
+               
+              </ul>  
+        </ng-container>
+    </section>
+    </div>
+    </div>

@@ -1,0 +1,29 @@
+.full-height{
+    min-height: 1000vh;
+}
+// .expend-nav-icon{
+//     font-size: 16px !important;
+// }
+.side-icon{
+    min-height: 100%;
+}
+.side-icon .mat-brn{
+    min-width: 30px !important;
+}
+.bg-left{
+    background-color:#ee23ee;
+}
+.bg-left div{
+    color: #fff;
+}
+.mat-drawer-content{
+    overflow: initial;
+}
+.mat-drawer-content .spacing-08-p-1{
+    margin-left: 15px;
+}
+
+.e-content-style{ 
+    display: block;
+    height: 100vh;
+}

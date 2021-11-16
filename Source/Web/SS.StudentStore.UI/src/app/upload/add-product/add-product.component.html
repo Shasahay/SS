@@ -1,0 +1,81 @@
+<div class="">
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <h4>Fill this up ...</h4>
+
+    </div>
+    <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+    <div class="mt-4">
+        <app-text-input [label]="'Title'" formControlName="title"></app-text-input>
+        <app-text-input [label]="'Name'" formControlName="name"></app-text-input>
+        <app-text-input [label]="'Description'" formControlName="description"></app-text-input>
+        <!-- <app-text-input [label]="'Price'" formControlName="price"></app-text-input> -->
+        <div class="form-label-group">
+          <input type="number" formControlName = "price" placeholder="Price" step=".01" class="form-control">
+        </div>
+        <div class="d-block my-3">
+          <select class="custom-select" (change)="changeHandler($event)" formControlName="categoryId">
+              <option value="" disabled>Choose Category</option>
+              <option *ngFor="let cat of categories" [ngValue]="cat.categoryId">{{cat.name}}</option>
+           </select>
+          </div>
+            <div class="d-block my-3">
+                <select class="custom-select" (change)="changeHandler($event)" formControlName="subCategoryId">
+                    <option value="" disabled>Choose Sub Category</option>
+                    <option *ngFor="let subCat of subcategories" [ngValue]="subCat.categoryId">{{subCat.name}}</option>
+                 </select>
+                </div>
+                <div class="d-block my-3">
+                    <select class="custom-select" (change)="changeHandler($event)" formControlName="gradeId">
+                        <option value="" disabled>Choose Grade</option>
+                        <option *ngFor="let gr of grade" [ngValue]="gr.gradeId">{{gr.name}}</option>
+                     </select>
+                    </div>
+
+                    <div class="d-block my-3">
+                        <select class="custom-select" (change)="changeHandler($event)" formControlName="sectionId">
+                            <option value="" disabled>Choose Section</option>
+                            <option *ngFor="let sc of section" [ngValue]="sc.sectionId">{{sc.name}}</option>
+                         </select>
+                        </div>
+
+                        <div class="d-block my-3">
+                            <select class="custom-select" (change)="changeHandler($event)" formControlName="brandId">
+                                <option value="" disabled>Choose Brand</option>
+                                <option *ngFor="let bd of brand" [ngValue]="bd.brandId">{{bd.name}}</option>
+                             </select>
+                            </div>
+
+  <!-- To use formControlName="productTypeId" for the following item need to use Control value accessor concept -->
+                            <div class="d-block my-3">
+                                <app-multi-select-dropdown [list]="productType" 
+                            (shareCheckedList)="shareCheckedList($event)" 
+                            (shareIndividualCheckedList)="shareIndividualCheckedList($event)">
+                            </app-multi-select-dropdown>
+
+                            <!-- <div *ngIf="f.productTypeId.touched && f.productTypeId.invalid" class="alert alert-danger">
+                            <div *ngIf="f.productTypeId.errors.required">Product Type is required</div>    
+                            </div> -->
+
+                            </div>
+
+<div class="d-block my-3">
+<app-file-upload [maxFiles]= "maxCoverImage" [fileType]="acceptedUploadFileType" [uploadType]="coverPicUploadCaption" (fileUploadEvent) = "coverPictureUploadEventHandler($event)"></app-file-upload>
+</div>
+<div class="d-block my-3">
+  <app-file-upload [maxFiles]="maxFullSizeImage" [fileType]="acceptedUploadFileType" [uploadType]="fullSizePicUploadCaption" (fileUploadEvent) = "fullPictureUploadEventHandler($event)" ></app-file-upload>
+  </div>
+  <div class="d-block my-3" *ngIf="isOnlineProduct">
+    <app-file-upload [maxFiles]="maxDocumentUpload" [fileType]="acceptedDocUploadFileType" [uploadType]="docUploadUrlCaption" (fileUploadEvent) = "documentUploadEventHandler($event)" ></app-file-upload>
+    </div>
+
+                           
+
+                             
+
+
+
+
+        </div>
+          <button   [disabled]="!addProductForm.valid" type="submit" class="btn btn-outline-primary py-2 btn-block">Send For Approval</button>
+    </form>
+    </div>

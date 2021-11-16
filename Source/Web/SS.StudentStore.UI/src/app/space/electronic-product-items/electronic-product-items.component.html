@@ -1,0 +1,26 @@
+    <ng-container *ngIf="electronicProducts">
+        <h5 class="text-primary ml-3">Ebooks</h5>
+        
+        <ul class="list-group my-3">
+            <li class="list-group-item cursor-pointer" 
+                *ngFor="let ep of electronicProducts | eproducts"
+                [class.active]="ep.productId === ep.productId"
+                [value]="ep.productId"
+                (click)="onItemClicked(ep)">
+                {{ep.title}}
+            </li>
+          </ul> 
+        
+          <h5 class="text-primary ml-3">Subscriptions</h5>
+        <ul class="list-group my-3">
+            <li class="list-group-item cursor-pointer" 
+                *ngFor="let ep of electronicProducts | subscribeproducts"
+                [class.active]="ep.productId"
+                [value]="ep.productId"
+                (click)="onItemClicked(ep)">
+                {{ep.title}}
+            </li>
+          </ul> 
+        </ng-container>
+
+

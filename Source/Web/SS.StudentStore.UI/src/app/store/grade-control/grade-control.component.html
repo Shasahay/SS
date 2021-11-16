@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="filter-container">
+    <section class="">
+        <ng-container *ngIf="grades">
+            <h5 class="text-primary">Grades</h5>
+            <ul class="list-group my-3 small">
+                <li class="list-group-item border border-white" 
+                    *ngFor="let grade of grades"
+                    [value]="grade.gradeId"
+                    (click)="onGradeSelected(grade.gradeId)">
+                    
+                    {{grade.name}}
+                </li>
+               
+              </ul>  
+        </ng-container>
+    </section>
+    </div>
+    </div>

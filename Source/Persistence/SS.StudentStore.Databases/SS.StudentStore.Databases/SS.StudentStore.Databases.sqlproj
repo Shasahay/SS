@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SS.StudentStore.Databases</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{8dd5c2ce-57b7-4f4e-be7a-3dd0a6deb3c8}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath />
+    <RootNamespace>SS.StudentStore.Databases</RootNamespace>
+    <AssemblyName>SS.StudentStore.Databases</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Schema-Model" />
+    <Folder Include="Schema-Model\Common" />
+    <Folder Include="Schema-Model\Core" />
+    <Folder Include="Schema-Model\Common\Tables" />
+    <Folder Include="Schema-Model\Common\Types" />
+    <Folder Include="Schema-Model\Core\Tables" />
+    <Folder Include="Schema-Model\Core\Types" />
+    <Folder Include="Schema-Model\Security" />
+    <Folder Include="Schema-Model\Security\Schemas" />
+    <Folder Include="Programmable-Objects" />
+    <Folder Include="Programmable-Objects\Core" />
+    <Folder Include="Programmable-Objects\Common" />
+    <Folder Include="Programmable-Objects\Core\Stored-Procedures" />
+    <Folder Include="Programmable-Objects\Core\Functions" />
+    <Folder Include="Programmable-Objects\Core\Views" />
+    <Folder Include="Pre-Deployment" />
+    <Folder Include="Post-Deployment" />
+    <Folder Include="Schema-Model\Store" />
+    <Folder Include="Schema-Model\Store\Tables" />
+    <Folder Include="Schema-Model\Store\Types" />
+    <Folder Include="Programmable-Objects\Store" />
+    <Folder Include="Programmable-Objects\Store\Stored-Procedures" />
+    <Folder Include="Schema-Model\Store\Types\User-Defined-Data-Types" />
+    <Folder Include="Programmable-Objects\AppIdentity" />
+    <Folder Include="Programmable-Objects\AppIdentity\Stored-Procedures" />
+    <Folder Include="Schema-Model\AppIdentity" />
+    <Folder Include="Schema-Model\AppIdentity\Tables" />
+    <Folder Include="Schema-Model\Order" />
+    <Folder Include="Schema-Model\Order\Tables" />
+    <Folder Include="Schema-Model\Order\Types" />
+    <Folder Include="Programmable-Objects\Order" />
+    <Folder Include="Programmable-Objects\Order\Stored-Procedures" />
+    <Folder Include="Programmable-Objects\Order\Views" />
+    <Folder Include="Schema-Model\Order\Types\User-Defined-Data-Types" />
+    <Folder Include="Schema-Model\Core\Types\User-Defined-Data-Types" />
+    <Folder Include="Programmable-Objects\Store\Views" />
+    <Folder Include="Schema-Model\Staging" />
+    <Folder Include="Programmable-Objects\Staging" />
+    <Folder Include="Programmable-Objects\Staging\Stored-Procedures" />
+    <Folder Include="Programmable-Objects\Staging\Views" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema-Model\Security\Schemas\Common.sql" />
+    <Build Include="Schema-Model\Core\Tables\Product.sql" />
+    <Build Include="Schema-Model\Core\Tables\SubCategory.sql" />
+    <Build Include="Schema-Model\Core\Tables\Category.sql" />
+    <Build Include="Schema-Model\Core\Tables\Brand.sql" />
+    <Build Include="Schema-Model\Core\Tables\Section.sql" />
+    <Build Include="Schema-Model\Core\Tables\Users.sql" />
+    <Build Include="Schema-Model\Core\Tables\Grade.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\ups_GetAllProduct.sql" />
+    <Build Include="Programmable-Objects\Core\Views\vwProduct.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\usp_GetAllCategory.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\usp_GetAllGrade.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\usp_GetAllBrand.sql" />
+    <Build Include="Schema-Model\Security\Schemas\Store.sql" />
+    <Build Include="Programmable-Objects\Store\Stored-Procedures\usp_GetBasketByUId.sql" />
+    <Build Include="Programmable-Objects\Store\Stored-Procedures\usp_DeleteBasketByUId.sql" />
+    <Build Include="Programmable-Objects\Store\Stored-Procedures\usp_DeleteBasketById.sql" />
+    <Build Include="Programmable-Objects\Store\Stored-Procedures\usp_GetBasketItemByBasketUId.sql" />
+    <Build Include="Programmable-Objects\Store\Stored-Procedures\usp_GetBasketItemByBasketId.sql" />
+    <Build Include="Programmable-Objects\Store\Stored-Procedures\usp_AddBasket.sql" />
+    <Build Include="Schema-Model\Store\Types\User-Defined-Data-Types\BasketItemTableType.sql" />
+    <Build Include="Programmable-Objects\Store\Stored-Procedures\usp_GetBasketById.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\usp_GetProductById.sql" />
+    <Build Include="Schema-Model\Security\Schemas\AppIdentity.sql" />
+    <Build Include="Schema-Model\AppIdentity\Tables\AddressType.sql" />
+    <Build Include="Schema-Model\AppIdentity\Tables\Address.sql" />
+    <Build Include="Schema-Model\AppIdentity\Tables\Users.sql" />
+    <Build Include="Programmable-Objects\AppIdentity\Stored-Procedures\usp_AddOrUpdateUser.sql" />
+    <Build Include="Programmable-Objects\Store\Stored-Procedures\usp_AddorUpdateBasket.sql" />
+    <Build Include="Programmable-Objects\AppIdentity\Stored-Procedures\usp_GetUserById.sql" />
+    <Build Include="Programmable-Objects\AppIdentity\Stored-Procedures\usp_GetUserByEmail.sql" />
+    <Build Include="Programmable-Objects\AppIdentity\Stored-Procedures\usp_GetUserByUserName.sql" />
+    <Build Include="Programmable-Objects\AppIdentity\Stored-Procedures\usp_GetAddressByEmail.sql" />
+    <Build Include="Programmable-Objects\AppIdentity\Stored-Procedures\usp_AddOrUpdateAddress.sql" />
+    <Build Include="Schema-Model\Security\Schemas\Order.sql" />
+    <Build Include="Programmable-Objects\Store\Stored-Procedures\usp_GetBasketByBasketUId.sql" />
+    <Build Include="Schema-Model\Order\Tables\Order.sql" />
+    <Build Include="Programmable-Objects\Order\Views\vwOrderView.sql" />
+    <Build Include="Programmable-Objects\Order\Stored-Procedures\usp_CreateOrder.sql" />
+    <Build Include="Programmable-Objects\Order\Stored-Procedures\usp_GetDeliveryMethodById.sql" />
+    <Build Include="Programmable-Objects\Order\Stored-Procedures\usp_GetDeliveryMethods.sql" />
+    <Build Include="Schema-Model\Order\Tables\OrderItem.sql" />
+    <Build Include="Schema-Model\Order\Types\User-Defined-Data-Types\OrderItemTableType.sql" />
+    <Build Include="Schema-Model\Store\Tables\BasketItem_History.sql" />
+    <Build Include="Schema-Model\Core\Tables\ProductType.sql" />
+    <Build Include="Schema-Model\Core\Tables\ProductTypeMapping.sql" />
+    <Build Include="Schema-Model\Core\Types\User-Defined-Data-Types\CommonIdBigIntTableType.sql" />
+    <Build Include="Schema-Model\Core\Types\User-Defined-Data-Types\CommonIdIntTableType.sql" />
+    <Build Include="Programmable-Objects\AppIdentity\Stored-Procedures\usp_AuthenticateUser.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\usp_GetOnlineProductByUserEmail.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\usp_GetProductTypeMappingByProductId.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\usp_GetUserOnlineProductByEmail.sql" />
+    <Build Include="Programmable-Objects\Order\Stored-Procedures\usp_GetOrderById.sql" />
+    <Build Include="Programmable-Objects\Order\Stored-Procedures\usp_GetOrderByUserEmail.sql" />
+    <Build Include="Programmable-Objects\Store\Views\vwBasketView.sql" />
+    <Build Include="Schema-Model\Security\Schemas\Staging.sql" />
+    <Build Include="Schema-Model\Staging\Product.sql" />
+    <Build Include="Schema-Model\Staging\ProductStatus.sql" />
+    <Build Include="Programmable-Objects\Staging\Stored-Procedures\usp_GetStagingProductByUser.sql" />
+    <Build Include="Programmable-Objects\Staging\Views\vwStagingProduct.sql" />
+    <Build Include="Programmable-Objects\Staging\Stored-Procedures\usp_AddorUpdateProduct.sql" />
+    <Build Include="Programmable-Objects\Staging\Stored-Procedures\usp_GetProductById.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema-Model\Security\Schemas\Core.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema-Model\Security\Schemas\Shop.sql" />
+    <None Include="Pre-Deployment\Create_Database.sql" />
+    <None Include="Post-Deployment\InsertMaster.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\usp_GetProduct.sql" />
+    <Build Include="Programmable-Objects\Core\Stored-Procedures\usp_GetAllSubCategory.sql" />
+    <None Include="Schema-Model\Core\Tables\usp_GetAllSection.sql" />
+    <Build Include="Schema-Model\Store\Tables\Basket.sql" />
+    <Build Include="Schema-Model\Store\Tables\BasketItem.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Programmable-Objects\AppIdentity\Stored-Procedures\usp_GetAddressByUserId.sql" />
+    <None Include="Programmable-Objects\AppIdentity\Stored-Procedures\usp_GetAddressByUserName.sql" />
+    <None Include="Schema-Model\Order\Tables\DeliveryMethod.sql" />
+  </ItemGroup>
+</Project>
